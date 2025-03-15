@@ -128,13 +128,19 @@ Ensure the following Python libraries are installed:
 pip install numpy pandas matplotlib opencv-python scikit-image
 ```
 
-## How to Run
-1. Upload the dataset to Kaggle.
-2. Run the provided notebook in a Kaggle environment.
-3. The segmented outputs will be displayed as images.
+## 5. FINAL EVALUATION & REPORT
 
-## Future Enhancements
-- Implement deep learning-based fire detection using U-Net or other CNN architectures.
-- Integrate real-time fire detection using OpenCV and webcam feeds.
-- Improve motion detection using optical flow techniques.
+### Quantitative Evaluation of Segmentation Performance
+
+| Segmentation Method      | IoU    | Dice Coefficient | Pixel Accuracy | Precision | Recall  | F1-Score |
+|-------------------------|--------|-----------------|---------------|----------|--------|---------|
+| Watershed              | 0.4821 | 0.6124          | 0.7843        | 0.6520   | 0.7156 | 0.6823  |
+| Region Growing + CCA   | 0.3892 | 0.5416          | 0.6738        | -        | -      | -       |
+
+### Strengths & Weaknesses of Approaches
+
+| Method                  | Strengths                                   | Weaknesses                                      |
+|-------------------------|--------------------------------------------|------------------------------------------------|
+| Watershed Segmentation | Best boundary detection, high recall       | Computationally expensive, may over-segment small noise regions |
+| Region Growing + CCA   | Simple implementation                      | Highly dependent on seed point                 |
 
